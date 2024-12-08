@@ -1,0 +1,50 @@
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  text-align: center;
+  color: var(--color-text-light);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:disabled {
+  background-color: var(--color-secondary);
+  cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  transform: scale(1.02);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* Breakpoints */
+@media (max-width: 1199px) {
+  .button {
+    padding: 0.65rem 1.3rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}

@@ -1,47 +1,30 @@
 import React from "react";
-import "./CustomInput.module.css";
+import styles from "./CustomInput.module.css";
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  value: string;
-  type: string;
-  name: string;
-  placeholder?: string;
+  name: string | undefined;
   error?: string;
-  required?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const CustomInput: React.FC<InputProps> = ({
-  label,
-  name,
-  type = "text",
-  value,
-  error,
-  placeholder,
-  required,
-  onChange,
-  onBlur,
-}) => {
+const CustomInput: React.FC<InputProps> = React.forwardRef<
+  HTMLInputElement,
+  InputProps
+>(({ label, error, placeholder, ...props }, ref) => {
   return (
-    <section className="">
-      <label htmlFor={name} className="">
-        {label} {required && <span className="">*</span>}
+    <section className={styles.section}>
+      <label htmlFor={props.name} className={styles.label}>
+        {label} {props.required && <span className="">*</span>}
       </label>
       <input
-        type={type}
-        id={name}
-        name={name}
+        ref={ref}
         placeholder={placeholder}
-        value={value}
-        className={`${error && ""}`}
-        onChange={onChange}
-        onBlur={onBlur}
+        className={`${styles.input} ${error && `${styles.errorBorder}`}`}
+        {...props}
       />
-      {error && <p className="">{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </section>
   );
-};
+});
 
 export default CustomInput;
