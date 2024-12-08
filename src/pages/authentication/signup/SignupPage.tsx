@@ -87,6 +87,8 @@ const SignupPage: React.FC = () => {
     users.push(newUser);
 
     localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+    localStorage.setItem("loggedIn", "true");
     toast("Signup Successful");
     navigate("/");
   };

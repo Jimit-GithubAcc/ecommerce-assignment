@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 import { ProfileForm } from "../../pages/profile/ProfilePage";
 import CustomInput from "../input/CustomInput";
+import CustomButton from "../button/CustomButton";
 
 interface EditProfileProps {
   isProfileValid: boolean;
@@ -63,13 +64,12 @@ const EditProfile: React.FC<EditProfileProps> = ({
         />
       </div>
 
-      <button
+      <CustomButton
         type="submit"
+        title="Edit Profile"
         className={styles.button}
         disabled={!isProfileValid}
-      >
-        Edit Profile
-      </button>
+      />
     </form>
   );
 };
