@@ -23,6 +23,10 @@
   transform: scale(1.02);
 }
 
+.button:disabled:hover {
+  background-color: var(--color-secondary);
+}
+
 .button:active:not(:disabled) {
   transform: scale(0.95);
 }

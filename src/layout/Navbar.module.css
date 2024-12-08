@@ -1,16 +1,14 @@
 .navbar {
   background-color: var(--color-text-dark);
   color: var(--color-text-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .container {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
-  width: 100%;
+  width: 90%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -43,4 +41,15 @@
 .navLinks a:hover {
   background-color: var(--color-secondary);
   border-radius: 5px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 575px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .navLinks {
+    gap: 0.5rem;
+  }
 }
