@@ -51,10 +51,6 @@
   }
 }
 
-@media (max-width: 767px) {
-  /* Optional: Adjust input or label sizes */
-}
-
 @media (min-width: 1920px) {
   .label {
     font-size: 1.25rem;
