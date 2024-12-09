@@ -58,13 +58,13 @@ const ProductsList: React.FC = () => {
                 className={styles.thumbnail}
               />
               <h2 className={styles.productTitle}>{product.title}</h2>
-              <ProductData title="Category" value={product.category} />
-              <ProductData title="Brand" value={product.brand} />
-              <ProductData title="Rating" value={product.rating} />
-              <ProductData title="Price" value={product.price} />
+              <ProductData title="Category" value={product.category || "--"} />
+              <ProductData title="Brand" value={product.brand || "--"} />
+              <ProductData title="Rating" value={product.rating || "--"} />
+              <ProductData title="Price" value={product.price || "--"} />
               <ProductData
                 title="Discount"
-                value={product.discountPercentage}
+                value={product.discountPercentage || "--"}
               />
               <CustomButton
                 title="View Details"

@@ -42,24 +42,24 @@ const ProductDetails: React.FC = () => {
         </div>
         <div className={styles.details}>
           <h1>{product.title}</h1>
-          <p>{product.description}</p>
+          <p>{product.description || "--"}</p>
           <p>
-            <strong>Price:</strong> ${product.price}
+            <strong>Price:</strong> ${product.price || "--"}
           </p>
           <p>
-            <strong>Discount:</strong> {product.discountPercentage}%
+            <strong>Discount:</strong> {product.discountPercentage || "--"}%
           </p>
           <p>
             <strong>Rating:</strong> {product.rating} / 5
           </p>
           <p>
-            <strong>Stock:</strong> {product.stock}
+            <strong>Stock:</strong> {product.stock || "--"}
           </p>
           <p>
-            <strong>Brand:</strong> {product.brand}
+            <strong>Brand:</strong> {product.brand || "--"}
           </p>
           <p>
-            <strong>Category:</strong> {product.category}
+            <strong>Category:</strong> {product.category || "--"}
           </p>
         </div>
       </section>
