@@ -5,12 +5,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { toast } from "react-toastify";
-import { SECRET_KEY } from "../../../utils/constants";
-import CryptoJS from "crypto-js";
 import CustomInput from "../../../components/input/CustomInput";
 import CustomButton from "../../../components/button/CustomButton";
 import signupStyles from "../signup/SignupPage.module.css";
 import styles from "./LoginPage.module.css";
+import { decryptPassword } from "../../../utils/helper";
 interface LoginData {
   email: string;
   password: string;
@@ -48,8 +47,7 @@ const LoginPage: React.FC = () => {
     }
 
     // Decrypt password
-    const bytes = CryptoJS.AES.decrypt(user.password, SECRET_KEY);
-    const decPassword = bytes.toString(CryptoJS.enc.Utf8);
+    const decPassword = decryptPassword(user.password);
 
     if (decPassword !== data.password) {
       setError("password", { type: "custom", message: "Incorrect password" });

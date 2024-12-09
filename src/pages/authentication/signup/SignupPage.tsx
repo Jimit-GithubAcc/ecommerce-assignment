@@ -2,13 +2,12 @@ import React from "react";
 import * as yup from "yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import CryptoJS from "crypto-js";
 import CustomInput from "../../../components/input/CustomInput";
 import CustomButton from "../../../components/button/CustomButton";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { SECRET_KEY } from "../../../utils/constants";
 import styles from "./SignupPage.module.css";
+import { encryptPassword } from "../../../utils/helper";
 
 interface SignupData {
   firstName: string;
@@ -74,10 +73,7 @@ const SignupPage: React.FC = () => {
     }
 
     //encrypt password
-    const encPassword = CryptoJS.AES.encrypt(
-      data.password,
-      SECRET_KEY
-    ).toString();
+    const encPassword = encryptPassword(data.password);
 
     const newUser = {
       ...data,
