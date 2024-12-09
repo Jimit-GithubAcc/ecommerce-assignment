@@ -98,7 +98,7 @@ const ProfilePage: React.FC = () => {
     setError: setPasswordError,
     formState: { errors: passwordErrors, isValid: isPasswordValid },
   } = useForm<PasswordForm>({
-    resolver: yupResolver(passwordSchema),
+    resolver: yupResolver(passwordSchema as any),
     mode: "onChange",
   });
 
